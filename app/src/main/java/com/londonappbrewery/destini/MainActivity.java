@@ -37,10 +37,7 @@ public class MainActivity extends AppCompatActivity {
         firstAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mStoryIndex == 1){
-                    mStoryIndex = 3;
-                    nextStoryLine();
-                } else if (mStoryIndex == 2) {
+                if (mStoryIndex == 1 || mStoryIndex == 2){
                     mStoryIndex = 3;
                     nextStoryLine();
                 } else if (mStoryIndex == 3) {
@@ -72,15 +69,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nextStoryLine () {
-        if (mStoryIndex == 3) {
-            storyLine.setText(R.string.T3_Story);
-            firstAnswer.setText(R.string.T3_Ans1);
-            secondAnswer.setText(R.string.T3_Ans2);
+
+        if (mStoryIndex == 1) {
+            storyLine.setText(R.string.T1_Story);
+            firstAnswer.setText(R.string.T1_Ans1);
+            secondAnswer.setText(R.string.T2_Ans2);
         } else if (mStoryIndex == 2) {
             storyLine.setText(R.string.T2_Story);
             firstAnswer.setText(R.string.T2_Ans1);
             secondAnswer.setText(R.string.T2_Ans2);
-        } else if (mStoryIndex == 4) {
+        } else if (mStoryIndex == 3) {
+            storyLine.setText(R.string.T3_Story);
+            firstAnswer.setText(R.string.T3_Ans1);
+            secondAnswer.setText(R.string.T3_Ans2);
+        }  else if (mStoryIndex == 4) {
             storyLine.setText(R.string.T4_End);
             firstAnswer.setVisibility(View.GONE);
             secondAnswer.setVisibility(View.GONE);
@@ -92,10 +94,6 @@ public class MainActivity extends AppCompatActivity {
             storyLine.setText(R.string.T6_End);
             firstAnswer.setVisibility(View.GONE);
             secondAnswer.setVisibility(View.GONE);
-        } else if (mStoryIndex == 1) {
-            storyLine.setText(R.string.T1_Story);
-            firstAnswer.setText(R.string.T1_Ans1);
-            secondAnswer.setText(R.string.T2_Ans2);
         }
     }
 
